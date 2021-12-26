@@ -150,12 +150,7 @@ module TwitterJekyll
     def initialize(_name, params, _tokens)
       super
 
-      if params.include?("noscript")
-        puts "=====> params"
-        @noscript = true
-      else
-        @noscript = false
-      end
+      @noscript = params.include?("noscript")
 
       # Test if first arg is a URL or starts with oembed,
       # otherwise its a Jekyll variable. TODO: remove oembed after deprecation cycle
@@ -205,8 +200,9 @@ module TwitterJekyll
     # Return Twitter response or error html
     # @api private
     def html_output_for(response)
-      puts "--- > " + @variable_params.inspect
       body = (response.html if response) || ERROR_BODY_TEXT
+
+      body = body.gsub('<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>', "")
 
       "<div class='jekyll-twitter-plugin'>#{body}</div>"
     end
