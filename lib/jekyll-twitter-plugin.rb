@@ -150,8 +150,13 @@ module TwitterJekyll
     def initialize(_name, params, _tokens)
       super
 
+      if params.includes?("noscript")
+        puts "=====> params"
+        @noscript = true
+      else
+        @noscript = false
+      end
 
-      puts "===" + params.inspect
       # Test if first arg is a URL or starts with oembed,
       # otherwise its a Jekyll variable. TODO: remove oembed after deprecation cycle
       if params =~ URL_OR_STRING_PARAM || params.to_s.start_with?(OEMBED_ARG)
