@@ -206,7 +206,7 @@ module TwitterJekyll
 
       body = body.gsub('<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>', "")
                         
-      puts "===\nBody after: #{body}"
+      puts "===\nBody after: #{body.gsub('<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>', "")}"
 
       "<div class='jekyll-twitter-plugin'>#{body}</div>"
     end
