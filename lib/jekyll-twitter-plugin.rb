@@ -202,11 +202,7 @@ module TwitterJekyll
     def html_output_for(response)
       body = (response.html if response) || ERROR_BODY_TEXT
 
-      puts "===\nBody before: #{body.inspect}"
-
       body = body.gsub("<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>", "")
-                        
-      puts "===\nBody after: #{body.inspect}"
 
       "<div class='jekyll-twitter-plugin'>#{body}</div>"
     end
