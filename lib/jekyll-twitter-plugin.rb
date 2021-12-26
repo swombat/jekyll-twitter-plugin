@@ -204,7 +204,7 @@ module TwitterJekyll
 
       puts "===\nBody before: #{body.inspect}"
 
-      body = body.gsub('<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>', "")
+      body = body.gsub("<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>", "")
                         
       puts "===\nBody after: #{body.inspect}"
 
