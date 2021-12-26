@@ -150,7 +150,7 @@ module TwitterJekyll
     def initialize(_name, params, _tokens)
       super
 
-      if params.includes?("noscript")
+      if params.include?("noscript")
         puts "=====> params"
         @noscript = true
       else
