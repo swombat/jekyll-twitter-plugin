@@ -198,7 +198,7 @@ module TwitterJekyll
     # Return Twitter response or error html
     # @api private
     def html_output_for(response)
-      puts @variable_params.inspect
+      puts "--- > " + @variable_params.inspect
       body = (response.html if response) || ERROR_BODY_TEXT
 
       "<div class='jekyll-twitter-plugin'>#{body}</div>"
